@@ -7,6 +7,7 @@ require 'ap'
 require 'concurrent'
 require 'rbnacl/libsodium'
 require 'json'
+require 'jwt'
 
 configure :development, :test do
   absolute_path = File.absolute_path './config/config_env.rb'

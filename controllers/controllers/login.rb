@@ -1,9 +1,7 @@
-require 'jwt'
-
 GOOGLE_OAUTH = 'https://accounts.google.com/o/oauth2/auth'
 GOOGLE_PARAMS = "?response_type=code&client_id=#{ENV['CLIENT_ID']}"
 
-# Visualizations for Canvas LMS Classes
+# Visualizations for Canvas LMS Classes: Teacher login
 class CanvasVisualizationAPI < Sinatra::Base
   include AppLoginHelper
 
@@ -32,9 +30,7 @@ class CanvasVisualizationAPI < Sinatra::Base
     payload = JSON.parse payload
     email = payload['email']
     password = payload['password']
-    result = VerifyPassword.new(email, password).call
-    puts result
-    result
+    VerifyPassword.new(email, password).call
   end
 
   save_password_return_jwt = lambda do
