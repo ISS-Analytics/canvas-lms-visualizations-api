@@ -6,8 +6,10 @@
 # Run `rake keys_for_config` to generate these keys.
 
 config_env :[ENV_NAME] do
+  set 'DB_KEY', [DB KEY]
   set 'MSG_KEY', [Session secret key]
+  set 'CLIENT_ID', [GOOGLE DEVELOPER CLIENT ID]
+  set 'CLIENT_SECRET' [GOOGLE DEVELOPER CLIENT SECRET]
   set 'UI_PUBLIC_KEY', [Public key for UI App]
   set 'API_PRIVATE_KEY', [Private key for API]
-  set 'CANVAS_TOKEN', [Using encrypt_token route] # Only in test environment
 end

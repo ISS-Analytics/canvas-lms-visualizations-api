@@ -17,6 +17,7 @@ gem 'awesome_print'
 gem 'concurrent-ruby'
 gem 'activemodel'
 gem 'virtus'
+gem 'jwt'
 
 group :development, :test do
   gem 'sqlite3'
