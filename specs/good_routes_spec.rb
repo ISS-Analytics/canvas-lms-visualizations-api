@@ -23,29 +23,29 @@ describe 'Getting the root of the service' do
   end
 end
 
-# describe 'Get course list and visit data pages' do
-#   course_ids = []
-#   before 'should return an array of hashes with specific info' do
-#     header HTTP_AUTHORIZATION, TOKEN
-#     get '/api/v1/courses'
-#     last_response.status.must_equal 200
-#     courses = JSON.parse last_response.body
-#     courses.must_be_kind_of Array
-#     courses.each do |course|
-#       course.must_be_kind_of Hash
-#       COURSE_HASH_INFO.each { |key, value| course[key].must_be_kind_of value }
-#       course_ids << course['id']
-#     end
-#   end
-#
-#   it 'should visit at least one course and verify data types' do
-#     course_id = course_ids.sample
-#     POSSIBLE_DATA.each do |data|
-#       header HTTP_AUTHORIZATION, TOKEN
-#       get "/api/v1/courses/#{course_id}/#{data}"
-#       last_response.status.must_equal 200
-#       result = JSON.parse last_response.body
-#       [Hash, Array].must_include result.class
-#     end
-#   end
-# end
+describe 'Get course list and visit data pages' do
+  course_ids = []
+  before 'should return an array of hashes with specific info' do
+    header HTTP_AUTHORIZATION, TOKEN
+    get '/api/v1/courses'
+    last_response.status.must_equal 200
+    courses = JSON.parse last_response.body
+    courses.must_be_kind_of Array
+    courses.each do |course|
+      course.must_be_kind_of Hash
+      COURSE_HASH_INFO.each { |key, value| course[key].must_be_kind_of value }
+      course_ids << course['id']
+    end
+  end
+
+  it 'should visit at least one course and verify data types' do
+    course_id = course_ids.sample
+    POSSIBLE_DATA.each do |data|
+      header HTTP_AUTHORIZATION, TOKEN
+      get "/api/v1/courses/#{course_id}/#{data}"
+      last_response.status.must_equal 200
+      result = JSON.parse last_response.body
+      [Hash, Array].must_include result.class
+    end
+  end
+end

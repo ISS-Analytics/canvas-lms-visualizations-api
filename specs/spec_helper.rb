@@ -1,4 +1,5 @@
-ENV['RACK_ENV'] = 'test'
+# ENV['RACK_ENV'] = 'test'
+# system 'rake db:migrate'
 
 require 'minitest/autorun'
 require 'minitest/rg'
@@ -8,7 +9,7 @@ require 'rack/test'
 # require 'yaml'
 # require 'virtus'
 
-Dir.glob('./{models,controllers,services,values}/*.rb').each do |file|
+Dir.glob('./{models,helpers,controllers,services,values}/*.rb').each do |file|
   require file
 end
 
