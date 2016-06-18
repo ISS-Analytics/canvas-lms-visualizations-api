@@ -1,4 +1,3 @@
-require 'sinatra'
 require 'sinatra/base'
 require 'config_env'
 require 'rack/ssl-enforcer'
@@ -10,6 +9,8 @@ require 'json'
 require 'jwt'
 
 configure :development, :test do
+  require 'hirb'
+  Hirb.enable
   absolute_path = File.absolute_path './config/config_env.rb'
   ConfigEnv.path_to_config(absolute_path)
 end
