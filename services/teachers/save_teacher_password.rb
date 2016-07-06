@@ -10,7 +10,7 @@ class SaveTeacherPassword
     teacher = Teacher.find_by_email(@email)
     teacher.password = @password
     if teacher.save
-      SavePasswordToJWT.new(@password, teacher.token_salt).call
+      CreateAppPayload.new(@email, @password, teacher.token_salt).call
     else
       fail('This is a weird one.')
     end
