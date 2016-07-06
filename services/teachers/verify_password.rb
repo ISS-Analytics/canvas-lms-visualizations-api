@@ -9,7 +9,8 @@ class VerifyPassword
     return 'no password found' if @current_teacher.hashed_password.nil?
     teacher = Teacher.authenticate!(@current_teacher.email, @password)
     if teacher.nil? then 'wrong password'
-    else SavePasswordToJWT.new(@password, teacher.token_salt).call
+    else CreateAppPayload.new(
+      @current_teacher.email, @password, teacher.token_salt).call
     end
   end
 end

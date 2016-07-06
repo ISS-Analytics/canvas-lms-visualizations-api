@@ -10,26 +10,26 @@ class CanvasVisualizationAPI < Sinatra::Base
     'oauth2callback_gmail&scope=email'
   end
 
-  store_email_as_jwt = lambda do
+  encrypt_email_address = lambda do
     access_token = CallbackGmail.new(params).call
     email = GoogleTeacherEmail.new(access_token).call
-    if find_teacher(email) then StoreEmailAsJWT.new(email).call
+    encrypted_email =
+    if find_teacher(email) then EncryptPayload.new(email).call
     else SaveTeacher.new(email).call
     end
+    { encrypted_email: encrypted_email, email: email }.to_json
   end
 
   verify_password = lambda do
     payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
     halt 400 unless payload.valid?
     payload = DecryptPayload.new(payload.bearer_token)
-    payload = begin payload.call
+    email = begin payload.call
     rescue => e
       logger.error e
       halt 401
     end
-    payload = JSON.parse payload
-    email = payload['email']
-    password = payload['password']
+    password = params['password']
     VerifyPassword.new(email, password).call
   end
 
@@ -37,19 +37,17 @@ class CanvasVisualizationAPI < Sinatra::Base
     payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
     halt 400 unless payload.valid?
     payload = DecryptPayload.new(payload.bearer_token)
-    payload = begin payload.call
+    email = begin payload.call
     rescue => e
       logger.error e
       halt 401
     end
-    payload = JSON.parse payload
-    email = payload['email']
-    password = payload['password']
+    password = params['password']
     SaveTeacherPassword.new(email, password).call
   end
 
   get '/api/v1/client_id/?', &google_client_id
-  get '/api/v1/use_callback_code/?', &store_email_as_jwt
+  get '/api/v1/use_callback_code/?', &encrypt_email_address
   get '/api/v1/verify_password/?', &verify_password
   post '/api/v1/save_password/?', &save_password_return_jwt
 end

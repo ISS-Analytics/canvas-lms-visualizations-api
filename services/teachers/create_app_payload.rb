@@ -1,8 +1,9 @@
 # Object to save user password as session variable
-class SavePasswordToJWT
+class CreateAppPayload
   include ModelHelper
 
-  def initialize(password, tsalt)
+  def initialize(email, password, tsalt)
+    @email = email
     @password = password
     @tsalt = tsalt
   end
@@ -11,7 +12,6 @@ class SavePasswordToJWT
     payload = base_64_encode(
       Teacher.token_key(@password, base_64_decode(@tsalt))
     )
-    payload = { specially_hashed_password: payload }
-    JWT.encode payload, ENV['MSG_KEY'], 'HS256'
+    TokenSetPayload.new(@email, payload).payload
   end
 end

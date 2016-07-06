@@ -35,11 +35,13 @@ To get up and running on localhost, run `rake` from the terminal.
 
 - `/` & `/api/v1`: Home route.
 - `/api/v1/courses` requires:
-  - an encrypted payload you can get from the Web App.
+  - an encrypted payload you can get from the Web App; passed as a bearer token.
+  - an `access_key`: unique token identifier.
 - `/api/v1/courses/:course_id/:data` requires:
   - a `course_id` passed in the url; and
   - a `data` field passed in the url. This field determines what information the api attempts to get from your Canvas installation. The possible options and can be found in the [data table](#data) below.
-  - an encrypted payload you can get from the Web App.
+  - an encrypted payload you can get from the Web App; passed as a bearer token.
+  - an `access_key`: unique token identifier.
 
 <!-- ### Tests
 

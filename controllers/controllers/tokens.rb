@@ -27,7 +27,6 @@ class CanvasVisualizationAPI < Sinatra::Base
     payload = JSON.parse payload
     email = payload['email']
     token_set = payload['token_set']
-    params = payload['params']
     SaveToken.new(email, token_set, params).call
   end
 
@@ -42,7 +41,7 @@ class CanvasVisualizationAPI < Sinatra::Base
     end
     payload = JSON.parse payload
     email = payload['email']
-    access_key = payload['access_key']
+    access_key = params['access_key']
     token = YouShallNotPass.new(email, access_key).call
     return 401 unless token
     200 if DeleteToken.new(token).call
