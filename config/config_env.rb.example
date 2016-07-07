@@ -4,6 +4,8 @@
 # The API has the private key of the UI so it can create
 # => and sign messages as if it were the UI.
 # Run `rake keys_for_config` to generate these keys.
+# Public key cryptography is a relic from a long lost era, but it remains in use
+# => Can be changed from the encrypt/decrypt files in services/tokens folder.
 
 config_env :[ENV_NAME] do
   set 'DB_KEY', [DB KEY]
