@@ -1,5 +1,6 @@
-# ENV['RACK_ENV'] = 'test'
-# system 'rake db:migrate'
+system 'rm db/test.db'
+ENV['RACK_ENV'] = 'test'
+system 'rake db:migrate'
 
 require 'minitest/autorun'
 require 'minitest/rg'
