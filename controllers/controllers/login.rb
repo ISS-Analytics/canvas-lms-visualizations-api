@@ -21,27 +21,15 @@ class CanvasVisualizationAPI < Sinatra::Base
   end
 
   verify_password = lambda do
-    payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
-    halt 400 unless payload.valid?
-    payload = DecryptPayload.new(payload.bearer_token)
-    email = begin payload.call
-    rescue => e
-      logger.error e
-      halt 401
-    end
+    email = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
+    halt 401 if email.nil?
     password = params['password']
     VerifyPassword.new(email, password).call
   end
 
   save_password_return_jwt = lambda do
-    payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
-    halt 400 unless payload.valid?
-    payload = DecryptPayload.new(payload.bearer_token)
-    email = begin payload.call
-    rescue => e
-      logger.error e
-      halt 401
-    end
+    email = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
+    halt 401 if email.nil?
     password = params['password']
     SaveTeacherPassword.new(email, password).call
   end

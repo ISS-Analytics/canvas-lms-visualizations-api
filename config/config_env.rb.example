@@ -13,9 +13,7 @@ config_env :[ENV_NAME] do
   set 'CLIENT_ID', [GOOGLE DEVELOPER CLIENT ID]
   set 'CLIENT_SECRET' [GOOGLE DEVELOPER CLIENT SECRET]
   set 'APP_URL', [URL of the Web App for to return]
-  set 'UI_PRIVATE_KEY', [Private key for UI App]
-  set 'UI_PUBLIC_KEY', [Public key for UI App]
-  set 'API_PRIVATE_KEY', [Private key for API]
-  set 'API_PUBLIC_KEY', [Public key for API]
+  set 'SECRET_KEY', [Secret key for API encryption]
+  set 'HMAC_SECRET', [Secret key for JWT]
   set 'CANVAS_TOKEN', [Token from Canvas for test environment ONLY]
 end
