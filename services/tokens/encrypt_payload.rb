@@ -3,7 +3,7 @@ require 'base64'
 require 'rbnacl/libsodium'
 require 'jwt'
 
-NINETY_MINUTES = 1.5 * 60 * 60
+THREE_HOURS = 3 * 60 * 60
 
 # Service object to encrypt payloads meant for the API.
 class EncryptPayload
@@ -24,9 +24,11 @@ class EncryptPayload
     payload = { encrypted_token: ciphertext, nonce: nonce }.to_json
     payload = { data: payload, exp: expiration_time }
     JWT.encode payload, @hmac_secret, 'HS256'
+  rescue => e
+    puts e
   end
 
   def expiration_time
-    Time.now.to_i + NINETY_MINUTES
+    Time.now.to_i + THREE_HOURS
   end
 end
