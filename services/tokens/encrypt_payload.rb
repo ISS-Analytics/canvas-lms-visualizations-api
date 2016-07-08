@@ -1,6 +1,9 @@
 require 'json'
 require 'base64'
 require 'rbnacl/libsodium'
+require 'jwt'
+
+NINETY_MINUTES = 1.5 * 60 * 60
 
 # Service object to encrypt payloads meant for the API.
 class EncryptPayload
@@ -8,17 +11,22 @@ class EncryptPayload
 
   def initialize(token)
     @token = token
-    @api_public_key = Base64.urlsafe_decode64 ENV['API_PUBLIC_KEY']
-    @ui_private_key = Base64.urlsafe_decode64 ENV['UI_PRIVATE_KEY']
+    @secret_key = Base64.urlsafe_decode64 ENV['SECRET_KEY']
+    @hmac_secret = Base64.urlsafe_decode64 ENV['HMAC_SECRET']
   end
 
   def call
-    box = RbNaCl::Box.new(@api_public_key, @ui_private_key)
-    nonce = RbNaCl::Random.random_bytes(box.nonce_bytes)
-    ciphertext = box.encrypt(nonce, @token)
+    secret_box = RbNaCl::SecretBox.new(@secret_key)
+    nonce = RbNaCl::Random.random_bytes(secret_box.nonce_bytes)
+    ciphertext = secret_box.encrypt(nonce, @token)
     ciphertext = Base64.urlsafe_encode64 ciphertext
     nonce = Base64.urlsafe_encode64 nonce
     payload = { encrypted_token: ciphertext, nonce: nonce }.to_json
-    Base64.urlsafe_encode64 payload
+    payload = { data: payload, exp: expiration_time }
+    JWT.encode payload, @hmac_secret, 'HS256'
+  end
+
+  def expiration_time
+    Time.now.to_i + NINETY_MINUTES
   end
 end

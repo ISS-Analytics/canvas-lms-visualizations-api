@@ -1,20 +1,14 @@
 # Visualizations for Canvas LMS Classes: Interaction with Canvas
 class CanvasVisualizationAPI < Sinatra::Base
   get_course_list = lambda do
-    payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
-    halt 400 unless payload.valid?
-    payload = DecryptPayload.new(payload.bearer_token)
-    payload = begin payload.call
-    rescue => e
-      logger.error e
-      halt 401
-    end
+    payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
+    halt 401 if payload.nil?
     payload = JSON.parse payload
     email = payload['email']
     access_key = params['access_key']
     token_set = payload['token_set']
     token = YouShallNotPass.new(email, access_key).call
-    return 401 unless token
+    return 403 unless token
     params_for_api = ParamsForCanvasApi.new(
       token.canvas_api(token_set), token.canvas_token(token_set)
     )
@@ -25,19 +19,14 @@ class CanvasVisualizationAPI < Sinatra::Base
   end
 
   go_to_api_with_request = lambda do
-    payload = BearerToken.new(env['HTTP_AUTHORIZATION'])
-    halt 400 unless payload.valid?
-    payload = DecryptPayload.new(payload.bearer_token)
-    payload = begin payload.call
-    rescue => e
-      logger.error e
-      halt 401
-    end
+    payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
+    halt 401 if payload.nil?
     payload = JSON.parse payload
     email = payload['email']
     access_key = params['access_key']
     token_set = payload['token_set']
     token = YouShallNotPass.new(email, access_key).call
+    return 403 unless token
     params_for_api = ParamsForCanvasApi.new(
       token.canvas_api(token_set), token.canvas_token(token_set),
       params['course_id'], params['data']
