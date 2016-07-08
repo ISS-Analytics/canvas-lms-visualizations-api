@@ -2,7 +2,7 @@
 class CanvasVisualizationAPI < Sinatra::Base
   get_tokens = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     token_set = payload['token_set']
@@ -11,7 +11,7 @@ class CanvasVisualizationAPI < Sinatra::Base
 
   post_tokens = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     token_set = payload['token_set']
@@ -20,7 +20,7 @@ class CanvasVisualizationAPI < Sinatra::Base
 
   delete_a_token = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     access_key = params['access_key']
@@ -31,7 +31,7 @@ class CanvasVisualizationAPI < Sinatra::Base
 
   delete_tokens = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     200 if DeleteAllTokens.new(email).call

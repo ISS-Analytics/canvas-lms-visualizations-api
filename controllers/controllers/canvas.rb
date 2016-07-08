@@ -2,7 +2,7 @@
 class CanvasVisualizationAPI < Sinatra::Base
   get_course_list = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     access_key = params['access_key']
@@ -20,7 +20,7 @@ class CanvasVisualizationAPI < Sinatra::Base
 
   go_to_api_with_request = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if payload.nil?
+    halt(*payload.values) if payload.class == Hash
     payload = JSON.parse payload
     email = payload['email']
     access_key = params['access_key']

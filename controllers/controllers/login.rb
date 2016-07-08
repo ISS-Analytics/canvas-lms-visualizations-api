@@ -22,14 +22,14 @@ class CanvasVisualizationAPI < Sinatra::Base
 
   verify_password = lambda do
     email = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if email.nil?
+    halt(*email.values) if email.class == Hash
     password = params['password']
     VerifyPassword.new(email, password).call
   end
 
   save_password_return_jwt = lambda do
     email = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
-    halt 401 if email.nil?
+    halt(*email.values) if email.class == Hash
     password = params['password']
     SaveTeacherPassword.new(email, password).call
   end

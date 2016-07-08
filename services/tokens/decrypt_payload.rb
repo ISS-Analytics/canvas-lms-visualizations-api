@@ -22,7 +22,7 @@ class DecryptPayload
     nonce = Base64.urlsafe_decode64 payload[NONCE_KEY]
     token = Base64.urlsafe_decode64 payload[TOKEN_KEY]
     secret_box.decrypt(nonce, token)
-  rescue JWT::ExpiredSignature => e
-    puts e
+  rescue => e
+    return({ code: 401, error: e.to_s })
   end
 end
