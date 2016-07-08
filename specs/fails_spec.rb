@@ -52,7 +52,7 @@ describe 'Fail at all tasks' do
     Token.delete_all
   end
 
-  it 'should return 401 for bad tokens' do
+  it 'should return 401 for expired tokens' do
     sleep 01
     @list_of_routes.each do |http_method, route|
       header HTTP_AUTHORIZATION, @one_second_token
