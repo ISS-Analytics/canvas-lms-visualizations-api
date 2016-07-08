@@ -9,8 +9,9 @@ THREE_HOURS = 3 * 60 * 60
 class EncryptPayload
   attr_accessor :token
 
-  def initialize(token)
+  def initialize(token, duration = nil)
     @token = token
+    @duration = duration
     @secret_key = Base64.urlsafe_decode64 ENV['SECRET_KEY']
     @hmac_secret = Base64.urlsafe_decode64 ENV['HMAC_SECRET']
   end
@@ -29,6 +30,7 @@ class EncryptPayload
   end
 
   def expiration_time
+    return Time.now.to_i + @duration if @duration
     Time.now.to_i + THREE_HOURS
   end
 end

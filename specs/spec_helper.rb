@@ -30,6 +30,7 @@ POSSIBLE_DATA = %w(
   activity users assignments discussion_topics
   student_summaries enrollments quizzes
 )
+ONE_SECOND = 1
 
 def app
   CanvasVisualizationAPI

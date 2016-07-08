@@ -6,7 +6,7 @@ class TokenClearingHouse
 
   def call
     payload = BearerToken.new(@auth_token)
-    return({ code: 400, error: 'invalid token' }) unless payload.valid?
+    return({ code: 400, error: 'Wrong token format' }) unless payload.valid?
     payload = DecryptPayload.new(payload.bearer_token)
     result = payload.call
     result
