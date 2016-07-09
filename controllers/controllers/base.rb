@@ -30,7 +30,8 @@ class CanvasVisualizationAPI < Sinatra::Base
   api_get_root = lambda do
     "Welcome to our API v1. Here's <a "\
     'href="https://github.com/ISS-Analytics/canvas-lms-visualizations-api">'\
-    'our github homepage</a>.'
+    'our github homepage</a>. To see how all our routes work, go to '\
+    '<a href="/api/v1/routes">/api/v1/routes</a>.'
   end
 
   api_routes_explained = lambda do
