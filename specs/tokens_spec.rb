@@ -2,7 +2,8 @@ require_relative 'spec_helper'
 
 describe 'Token handling' do
   before do
-    SaveTeacher.new(EMAIL_ADDRESS).call
+    email_token = SaveTeacher.new(EMAIL_ADDRESS).call
+    @email_token = "Bearer #{email_token}"
     @api_payload = SaveTeacherPassword.new(EMAIL_ADDRESS, PASSWORD).call
     @api_token = "Bearer #{@api_payload}"
   end
@@ -58,7 +59,8 @@ describe 'Token handling' do
     result = JSON.parse last_response.body
     result.must_be_kind_of Array
     result.length.must_equal 1
-    header HTTP_AUTHORIZATION, @api_token
+    # deletion of all tokens must be possible with email token only
+    header HTTP_AUTHORIZATION, @email_token
     delete '/api/v1/tokens'
     last_response.status.must_equal 200
     header HTTP_AUTHORIZATION, @api_token

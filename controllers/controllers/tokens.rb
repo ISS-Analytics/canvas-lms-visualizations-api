@@ -32,8 +32,7 @@ class CanvasVisualizationAPI < Sinatra::Base
   delete_tokens = lambda do
     payload = TokenClearingHouse.new(env['HTTP_AUTHORIZATION']).call
     halt(*payload.values) if payload.class == Hash
-    payload = JSON.parse payload
-    email = payload['email']
+    email = payload
     200 if DeleteAllTokens.new(email).call
   end
 
