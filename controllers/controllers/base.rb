@@ -25,11 +25,18 @@ class CanvasVisualizationAPI < Sinatra::Base
     set :session_secret, ENV['MSG_KEY']
   end
 
+  set :public_folder, File.expand_path('../../../public', __FILE__)
+
   api_get_root = lambda do
     "Welcome to our API v1. Here's <a "\
     'href="https://github.com/ISS-Analytics/canvas-lms-visualizations-api">'\
     'our github homepage</a>.'
   end
 
+  api_routes_explained = lambda do
+    redirect '/swagger.html'
+  end
+
   ['/', '/api/v1/?'].each { |path| get path, &api_get_root }
+  get '/api/v1/routes', &api_routes_explained
 end
