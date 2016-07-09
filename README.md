@@ -31,4 +31,4 @@ To get up and running on localhost, run `rake` from the terminal.
 ### Routes
 
 - Check the route `/api/v1/routes` to see an explanation of the routes
-  - (bootprint-swagger)[https://www.npmjs.com/package/bootprint-swagger] was used to create the documentation of routes, which is based on the (Swagger.io)[http://swagger.io/] framework.
+  - [bootprint-swagger](https://www.npmjs.com/package/bootprint-swagger) was used to create the documentation of routes, which is based on the [Swagger.io](http://swagger.io/) framework.
