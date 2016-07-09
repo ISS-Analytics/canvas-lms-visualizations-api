@@ -103,7 +103,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -143,7 +143,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -187,7 +187,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -220,7 +220,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -252,7 +252,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -297,7 +297,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -346,7 +346,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
@@ -415,7 +415,7 @@ paths:
         401:
           description: |
             Body will be more specific, error stems from a problem with
-            decrypting the bearer token, most like due to expiration of token.
+            decrypting the bearer token, most likely due to expiration of token.
           schema:
             type: string
             format: string
