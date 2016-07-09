@@ -1,3 +1,4 @@
 .bundle
 config/*_env.rb
 db/*.db
+*.yaml

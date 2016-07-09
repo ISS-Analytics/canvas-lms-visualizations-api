@@ -8,8 +8,11 @@ class ListTokens
   def call
     return @tokens unless @tokens
     @tokens.map do |token|
-      [token.canvas_token_display(@token_set), token.canvas_url(@token_set),
-       token.access_key]
+      {
+        obfuscated_canvas_token: token.canvas_token_display(@token_set),
+        canvas_url: token.canvas_url(@token_set),
+        access_key: token.access_key
+      }
     end.to_json
   end
 end
