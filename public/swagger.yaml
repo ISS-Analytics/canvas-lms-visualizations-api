@@ -404,14 +404,15 @@ definitions:
     type: string
     format: Base64
     description: |
-      A JWT that needs to be returned for the next few calls to the API. It
-      expires after 3 hours.
+      A JWT that needs to be submitted for some calls to the API. It expires
+      after 3 hours. Retrieved from the `/api/v1/use_callback_code` route.
   RegularToken:
     type: string
     format: Base64
     description: |
-      A JWT that needs to be returned for calls that go to the Canvas API, or
-      relate to token handling. It expires after 3 hours.
+      A JWT that needs to be submitted for calls that go to the Canvas API, or
+      calls related to token handling. It expires after 3 hours. Retrieved from
+      either the `/api/v1/verify_password` or `/api/v1/save_password` route.
 securityDefinitions:
   Bearer:
     type: apiKey

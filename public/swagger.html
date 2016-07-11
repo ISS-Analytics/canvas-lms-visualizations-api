@@ -1569,8 +1569,10 @@
                         </div>
                     <div class="panel-body">
                                 <section class="json-schema-description">
-                                    <p>A JWT that needs to be returned for the next few calls to the API. It
-                            expires after 3 hours.</p>
+                                    <p>A JWT that needs to be submitted for some calls to the API. It
+                            expires after 3 hours. Retrieved from the
+                            <a href="#operation--api-v1-use_callback_code-get">GET /api/v1/use_callback_code</a>
+                            route.</p>
 
                                 </section>
 
@@ -1587,8 +1589,11 @@
                         </div>
                     <div class="panel-body">
                                 <section class="json-schema-description">
-                                    <p>A JWT that needs to be returned for calls that go to the Canvas API, or
-                            relate to token handling. It expires after 3 hours.</p>
+                                    <p>A JWT that needs to be submitted for calls that go to the Canvas API, or
+                            calls related to token handling. It expires after 3 hours. Retrieved from either the
+                          <a href="#operation--api-v1-verify_password-get">GET /api/v1/verify_password</a> or
+                          <a href="#operation--api-v1-save_password-post">POST /api/v1/save_password</a>
+                          route.</p>
 
                                 </section>
 
