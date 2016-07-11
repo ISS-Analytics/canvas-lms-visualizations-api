@@ -10,18 +10,18 @@
     <h1>Canvas LMS Class Visualizations API</h1>
     <p><p>An API that wraps around the Canvas LMS API</p>
     </p>
-    
-    
+
+
     <div id="sw-schemes" class="sw-default-value">
         <span class="sw-default-value-header">Schemes:</span>
         https
     </div>
-    
-        
+
+
         <h2 id="swagger--summary-tags">Summary</h2>
             <h3 id="tag-Home" class="swagger-summary-tag">Tag: Home</h3>
             <p></p>
-        
+
             <table class="table table-bordered table-condensed swagger--summary">
                 <thead>
                 <tr>
@@ -39,7 +39,7 @@
             </table>
             <h3 id="tag-Login" class="swagger-summary-tag">Tag: Login</h3>
             <p></p>
-        
+
             <table class="table table-bordered table-condensed swagger--summary">
                 <thead>
                 <tr>
@@ -73,7 +73,7 @@
             </table>
             <h3 id="tag-Tokens" class="swagger-summary-tag">Tag: Tokens</h3>
             <p></p>
-        
+
             <table class="table table-bordered table-condensed swagger--summary">
                 <thead>
                 <tr>
@@ -106,7 +106,7 @@
             </table>
             <h3 id="tag-Canvas" class="swagger-summary-tag">Tag: Canvas</h3>
             <p></p>
-        
+
             <table class="table table-bordered table-condensed swagger--summary">
                 <thead>
                 <tr>
@@ -127,13 +127,42 @@
                     </tr>
                 </tbody>
             </table>
-        
-    
-    
-    
+
+
+
+        <h2>Security</h2>
+
+            <div id="security-definition-Bearer" class="panel panel-security-definition panel-security-definition-apiKey">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="security-name">Bearer</span> <strong><span class="sw-security-definition-apiKey"></span></strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-security-properties">
+                            <dt>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">name:</span>
+                                    <span class="security-property-type">Authorization</span>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">in:</span>
+                                    <span class="security-property-type">header</span>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">description:</span>
+                                    <span class="security-property-type">Use the Bearer authentication scheme</span>
+                            </dt>
+                            <dt>
+                                    <span class="security-property-name">x-pattern:</span>
+                                    <span class="security-property-type">Bearer {apiToken}</span>
+                            </dt>
+                    </section>
+                </div>
+            </div>
+
     <h2>Paths</h2>
-    
-        
+
+
         <span id="path--api-v1-"></span>
             <div id="operation--api-v1--get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -144,38 +173,38 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
-                    
+
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>API is up and running</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-client_id"></span>
             <div id="operation--api-v1-client_id-get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -188,39 +217,39 @@
                     <section class="sw-operation-description">
                         <p>The APP needs the API&#39;s Google Client ID to initiate Google OAuth. The
             API creates the URL that needs to be called and returns it.</p>
-            
+
                     </section>
-                    
-                    
+
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>The API returns the URL the APP can call to initiate Google OAuth
                                             sequence.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-courses"></span>
             <div id="operation--api-v1-courses-get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -231,9 +260,9 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -248,22 +277,6 @@
                                 <tbody>
                                         <tr>
                                             <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the value received from either the
-                                        <code>/api/v1/verify_password</code> or <code>/api/v1/save_password</code> route using the
-                                        <code>Bearer authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
                                                 access_key
                                             <td><p><code>access_token</code> of canvas token received from <code>get</code> call to
                                         <code>/api/v1/tokens</code> route</p>
@@ -271,7 +284,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -280,108 +293,124 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A JSON array of all Canvas courses linked to the user&#39;s canvas token</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                                             <section class="json-schema-array-items">
                                                                                 <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/Courses">Courses</a>
                                                                                 </span>
                                                                                 <span class="json-property-range" title="Value limits"></span>
-                                                                                
+
                                                                                 <div class="json-inner-schema">
-                                                                                    
+
                                                                                 </div>
                                                                             </section>    </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Check the error message. If there is no error message - which is a
                                             possibility - then something very strange has happened.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-403">
                                         403 Forbidden
-                                    
+
                                     </dt>
                                     <dd class="sw-response-403">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>The user does not own this token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-courses--course_id---data-"></span>
             <div id="operation--api-v1-courses--course_id---data--get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -394,9 +423,9 @@
                     <section class="sw-operation-description">
                         <p>This route return data that can be used to create visualizations.
             Everything else was building up to this!</p>
-            
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -418,7 +447,7 @@
                                             <td>path</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -438,23 +467,7 @@
                                             <td>path</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the value received from either the
-                                        <code>/api/v1/verify_password</code> or <code>/api/v1/save_password</code> route using the
-                                        <code>Bearer authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -469,7 +482,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -478,31 +491,31 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>This is entirely dependent on the <code>data</code> path. It could be an array,
                                             or a hash.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                             </div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
@@ -510,66 +523,82 @@
                                                     <p>Check the error message. If there is no error message - which is a
                                             possibility - then it is likely that the <code>data</code> in the path is not
                                             one of the required options.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-403">
                                         403 Forbidden
-                                    
+
                                     </dt>
                                     <dd class="sw-response-403">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>The user does not own this token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-save_password"></span>
             <div id="operation--api-v1-save_password-post" class="swagger--panel-operation-post panel">
                 <div class="panel-heading">
@@ -581,9 +610,9 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -604,23 +633,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the <code>encrypted_email</code> value received from
-                                        the <code>/api/v1/use_callback_code</code> route using the <code>Bearer
-                                        authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -629,79 +642,95 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A JWT valid for 3 hours. Use it as the bearer token for subsequent
                                             API calls.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+                                                                <a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a>
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/EmailToken">EmailToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-token"></span>
             <div id="operation--api-v1-token-delete" class="swagger--panel-operation-delete panel">
                 <div class="panel-heading">
@@ -712,9 +741,9 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -729,22 +758,6 @@
                                 <tbody>
                                         <tr>
                                             <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the value received from either the
-                                        <code>/api/v1/verify_password</code> or <code>/api/v1/save_password</code> route using the
-                                        <code>Bearer authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
                                                 access_key
                                             <td><p><code>access_token</code> of canvas token received from <code>get</code> call to
                                         <code>/api/v1/tokens</code> route</p>
@@ -752,7 +765,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -761,99 +774,115 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Token deleted</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-403">
                                         403 Forbidden
-                                    
+
                                     </dt>
                                     <dd class="sw-response-403">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>The user does not own this token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-tokens"></span>
             <div id="operation--api-v1-tokens-delete" class="swagger--panel-operation-delete panel">
                 <div class="panel-heading">
@@ -864,130 +893,115 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
-                        <section class="sw-request-params">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-param-name"></th>
-                                    <th class="sw-param-description"></th>
-                                    <th class="sw-param-type"></th>
-                                    <th class="sw-param-data-type"></th>
-                                    <th class="sw-param-annotation"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the <code>encrypted_email</code> value received from
-                                        the <code>/api/v1/use_callback_code</code> route using the <code>Bearer
-                                        authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    
+
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Token deleted</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-403">
                                         403 Forbidden
-                                    
+
                                     </dt>
                                     <dd class="sw-response-403">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>The user does not own this token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
                         </section>
                 </div>
             </div>    <div id="operation--api-v1-tokens-get" class="swagger--panel-operation-get panel">
@@ -999,117 +1013,102 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
-                        <section class="sw-request-params">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-param-name"></th>
-                                    <th class="sw-param-description"></th>
-                                    <th class="sw-param-type"></th>
-                                    <th class="sw-param-data-type"></th>
-                                    <th class="sw-param-annotation"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the value received from either the
-                                        <code>/api/v1/verify_password</code> or <code>/api/v1/save_password</code> route using the
-                                        <code>Bearer authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    
+
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A JSON array of all Canvas tokens saved by the user</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                                             <section class="json-schema-array-items">
                                                                                 <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/Tokens">Tokens</a>
                                                                                 </span>
                                                                                 <span class="json-property-range" title="Value limits"></span>
-                                                                                
+
                                                                                 <div class="json-inner-schema">
-                                                                                    
+
                                                                                 </div>
                                                                             </section>    </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
                         </section>
                 </div>
             </div>    <div id="operation--api-v1-tokens-post" class="swagger--panel-operation-post panel">
@@ -1121,9 +1120,9 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -1138,29 +1137,13 @@
                                 <tbody>
                                         <tr>
                                             <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the value received from either the
-                                        <code>/api/v1/verify_password</code> or <code>/api/v1/save_password</code> route using the
-                                        <code>Bearer authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
                                                 url
                                             <td><p>Canvas URL the user wants to access</p>
                                         </td>
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -1174,7 +1157,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -1183,78 +1166,94 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A message either reporting whether canvas token was saved or not</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-use_callback_code"></span>
             <div id="operation--api-v1-use_callback_code-get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -1273,9 +1272,9 @@
             encrypted email address the APP can use as a bearer token to communicate
             with the API. This bearer token is how the API identifies the user until
             another bearer token is returned to the APP.</p>
-            
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -1297,7 +1296,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -1306,35 +1305,35 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A JSON object containing two key-value pairs</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
                                                                 <a class="json-schema-ref" href="#/definitions/Email">Email</a>
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
                 </div>
-            </div>    
+            </div>
         <span id="path--api-v1-verify_password"></span>
             <div id="operation--api-v1-verify_password-get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
@@ -1345,9 +1344,9 @@
                 </div>
                 <div class="panel-body">
                     <section class="sw-operation-description">
-                        
+
                     </section>
-                    
+
                         <section class="sw-request-params">
                             <table class="table">
                                 <thead>
@@ -1368,23 +1367,7 @@
                                             <td>query</td>
                                             <td><span class="json-property-type">string</span>
                                         <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                                    <span class="json-property-required"></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Authorization
-                                            <td><p>Authentication token, use the <code>encrypted_email</code> value received from
-                                        the <code>/api/v1/use_callback_code</code> route using the <code>Bearer
-                                        authentication scheme</code></p>
-                                        </td>
-                                            <td>header</td>
-                                            <td><span class="json-property-type">string</span>    <span class="json-property-format">(byte)</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
+
                                             </td>
                                             <td>
                                                     <span class="json-property-required"></span>
@@ -1393,224 +1376,275 @@
                                 </tbody>
                             </table>
                         </section>
-                    
+
                         <section class="sw-responses">
-                    
+
                             <dl>
                                     <dt class="sw-response-200">
                                         200 OK
-                                    
+
                                     </dt>
                                     <dd class="sw-response-200">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>A JWT valid for 3 hours. Use it as the bearer token for subsequent
                                             API calls.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+                                                                <a class="json-schema-ref" href="#/definitions/RegularToken">RegularToken</a>
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-400">
                                         400 Bad Request
-                                    
+
                                     </dt>
                                     <dd class="sw-response-400">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Wrong token format</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                                     <dt class="sw-response-401">
                                         401 Unauthorized
-                                    
+
                                     </dt>
                                     <dd class="sw-response-401">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Body will be more specific, error stems from a problem with
                                             decrypting the bearer token, most likely due to expiration of token.</p>
-                                            
+
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                
+
                                                 <div class="col-md-6 sw-response-model">
                                                 <div  class="panel panel-definition">
                                                     <div class="panel-body">
-                                                            
+
                                                     </div>
                                                 </div></div>
-                                            
+
                                             </div>                </dd>
                             </dl>
                         </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-Bearer">Bearer</a></td>
+                                            <td><a class="json-schema-ref" href="#/definitions/EmailToken">EmailToken</a></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
                 </div>
             </div>
-     
-    
-                       
+
+
+
         <h2>Schema definitions</h2>
-    
-            
+
+
                 <div id="definition-Courses" class="panel panel-definition">
                         <div class="panel-heading">
                                 <h3 class="panel-title"><a name="/definitions/Courses"></a>Courses:
                                     <span class="json-property-type"><span class="json-property-type">object</span>
                 <span class="json-property-range" title="Value limits"></span>
-                
+
                 </span>
                                 </h3>
                         </div>
                     <div class="panel-body">
-                            
+
                                     <section class="json-schema-properties">
                                         <dl>
                                                 <dt data-property-name="id">
                                                     <span class="json-property-name">id:</span>
                                                     <span class="json-property-type">number</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>A unique identifier for the Canvas course. Return this value to the
                                     API for subsequent course-related requests.</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                                 <dt data-property-name="other_values">
                                                     <span class="json-property-name">other_values:</span>
                                                     <span class="json-property-type">object</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>Other values the Canvas API provides including: name, account_id, ...</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                         </dl>
                                     </section>
                     </div>
-                </div>        
+                </div>
                 <div id="definition-Email" class="panel panel-definition">
                         <div class="panel-heading">
                                 <h3 class="panel-title"><a name="/definitions/Email"></a>Email:
                                     <span class="json-property-type"><span class="json-property-type">object</span>
                 <span class="json-property-range" title="Value limits"></span>
-                
+
                 </span>
                                 </h3>
                         </div>
                     <div class="panel-body">
-                            
+
                                     <section class="json-schema-properties">
                                         <dl>
                                                 <dt data-property-name="encrypted_email">
                                                     <span class="json-property-name">encrypted_email:</span>
-                                                    <span class="json-property-type">string</span>    <span class="json-property-format">(Base64)</span>
+                                                    <span class="json-property-type">    <a class="json-schema-ref" href="#/definitions/EmailToken">EmailToken</a>
+                                                    </span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
-                                                    <p>A JWT that needs to be returned for the next few calls to the
-                                    API.</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                                 <dt data-property-name="email">
                                                     <span class="json-property-name">email:</span>
                                                     <span class="json-property-type">string</span>    <span class="json-property-format">(email)</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>An email address the APP can use to identify the user</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                         </dl>
                                     </section>
                     </div>
-                </div>        
+                </div>
+                <div id="definition-EmailToken" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/EmailToken"></a>EmailToken:
+                                    <span class="json-property-type"><span class="json-property-type">string</span>    <span class="json-property-format">(Base64)</span>
+                <span class="json-property-range" title="Value limits"></span>
+
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                                <section class="json-schema-description">
+                                    <p>A JWT that needs to be returned for the next few calls to the API. It
+                            expires after 3 hours.</p>
+
+                                </section>
+
+                    </div>
+                </div>
+                <div id="definition-RegularToken" class="panel panel-definition">
+                        <div class="panel-heading">
+                                <h3 class="panel-title"><a name="/definitions/RegularToken"></a>RegularToken:
+                                    <span class="json-property-type"><span class="json-property-type">string</span>    <span class="json-property-format">(Base64)</span>
+                <span class="json-property-range" title="Value limits"></span>
+
+                </span>
+                                </h3>
+                        </div>
+                    <div class="panel-body">
+                                <section class="json-schema-description">
+                                    <p>A JWT that needs to be returned for calls that go to the Canvas API, or
+                            relate to token handling. It expires after 3 hours.</p>
+
+                                </section>
+
+                    </div>
+                </div>
                 <div id="definition-Tokens" class="panel panel-definition">
                         <div class="panel-heading">
                                 <h3 class="panel-title"><a name="/definitions/Tokens"></a>Tokens:
                                     <span class="json-property-type"><span class="json-property-type">object</span>
                 <span class="json-property-range" title="Value limits"></span>
-                
+
                 </span>
                                 </h3>
                         </div>
                     <div class="panel-body">
-                            
+
                                     <section class="json-schema-properties">
                                         <dl>
                                                 <dt data-property-name="obfuscated_canvas_token">
                                                     <span class="json-property-name">obfuscated_canvas_token:</span>
                                                     <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>Token from canvas but obfuscated such that it can safely be displayed</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                                 <dt data-property-name="canvas_url">
                                                     <span class="json-property-name">canvas_url:</span>
                                                     <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>The URL the saved Canvas token can access</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                                 <dt data-property-name="access_key">
                                                     <span class="json-property-name">access_key:</span>
                                                     <span class="json-property-type">string</span>
                                                     <span class="json-property-range" title="Value limits"></span>
-                                                    
+
                                                 </dt>
                                                 <dd>
                                                     <p>A pseudo-unique identifier of tokens you must return when you want
                                     query the Canvas API</p>
-                                    
+
                                                     <div class="json-inner-schema">
-                                                        
+
                                                     </div>
                                                 </dd>
                                         </dl>

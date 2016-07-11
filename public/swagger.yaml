@@ -9,11 +9,11 @@ host: canvas-viz-api.herokuapp.com
 schemes:
   - https
 # will be prefixed to all paths
-basePath: /api/v1
+# basePath:
 # produces:
 #   - text/html
 paths:
-  /:
+  /api/v1/:
     get:
       summary: Home page
       tags:
@@ -23,7 +23,7 @@ paths:
           description: API is up and running
           schema:
             type: string
-  /client_id:
+  /api/v1/client_id:
     get:
       summary: Get URL to initiate Google OAuth
       description: |
@@ -38,7 +38,7 @@ paths:
             sequence.
           schema:
             type: string
-  /use_callback_code:
+  /api/v1/use_callback_code:
     get:
       summary: Returns user identification data
       description: |
@@ -65,26 +65,19 @@ paths:
           description: A JSON object containing two key-value pairs
           schema:
             $ref: '#/definitions/Email'
-  /save_password:
+  /api/v1/save_password:
     post:
       summary: |
         Saves user password and returns bearer token. This can be used for a new
         user or a returning user who has forgotten their password.
+      security:
+        - Bearer: []
       parameters:
         - name: password
           in: query
           description: User's password
           required: true
           type: string
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the `encrypted_email` value received from
-            the `/api/v1/use_callback_code` route using the `Bearer
-            authentication scheme`
-          required: true
-          type: string
-          format: byte
       tags:
         - Login
       responses:
@@ -93,8 +86,7 @@ paths:
             A JWT valid for 3 hours. Use it as the bearer token for subsequent
             API calls.
           schema:
-            type: string
-            format: string
+            $ref: '#/definitions/RegularToken'
         400:
           description: Wrong token format
           schema:
@@ -107,24 +99,17 @@ paths:
           schema:
             type: string
             format: string
-  /verify_password:
+  /api/v1/verify_password:
     get:
       summary: To verify the user's password for a returning user.
+      security:
+        - Bearer: []
       parameters:
         - name: password
           in: query
           description: User's password
           required: true
           type: string
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the `encrypted_email` value received from
-            the `/api/v1/use_callback_code` route using the `Bearer
-            authentication scheme`
-          required: true
-          type: string
-          format: byte
       tags:
         - Login
       responses:
@@ -133,8 +118,7 @@ paths:
             A JWT valid for 3 hours. Use it as the bearer token for subsequent
             API calls.
           schema:
-            type: string
-            format: string
+            $ref: '#/definitions/RegularToken'
         400:
           description: Wrong token format
           schema:
@@ -147,19 +131,12 @@ paths:
           schema:
             type: string
             format: string
-  /tokens:
+  /api/v1/tokens:
     post:
       summary: Save a canvas token for a user
+      security:
+        - Bearer: []
       parameters:
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the value received from either the
-            `/api/v1/verify_password` or `/api/v1/save_password` route using the
-            `Bearer authentication scheme`
-          required: true
-          type: string
-          format: byte
         - name: url
           in: query
           description: Canvas URL the user wants to access
@@ -193,16 +170,8 @@ paths:
             format: string
     get:
       summary: Returns list of saved tokens saved by user as JSON array
-      parameters:
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the value received from either the
-            `/api/v1/verify_password` or `/api/v1/save_password` route using the
-            `Bearer authentication scheme`
-          required: true
-          type: string
-          format: byte
+      security:
+        - Bearer: []
       tags:
         - Tokens
       responses:
@@ -226,16 +195,8 @@ paths:
             format: string
     delete:
       summary: Delete all canvas token for a user
-      parameters:
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the `encrypted_email` value received from
-            the `/api/v1/use_callback_code` route using the `Bearer
-            authentication scheme`
-          required: true
-          type: string
-          format: byte
+      security:
+        - Bearer: []
       tags:
         - Tokens
       responses:
@@ -261,19 +222,12 @@ paths:
           schema:
             type: integer
             format: int32
-  /token:
+  /api/v1/token:
     delete:
       summary: Delete a specific canvas token for a user
+      security:
+        - Bearer: []
       parameters:
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the value received from either the
-            `/api/v1/verify_password` or `/api/v1/save_password` route using the
-            `Bearer authentication scheme`
-          required: true
-          type: string
-          format: byte
         - name: access_key
           in: query
           description: |
@@ -306,19 +260,12 @@ paths:
           schema:
             type: integer
             format: int32
-  /courses:
+  /api/v1/courses:
     get:
       summary: Get course list for a given token
+      security:
+        - Bearer: []
       parameters:
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the value received from either the
-            `/api/v1/verify_password` or `/api/v1/save_password` route using the
-            `Bearer authentication scheme`
-          required: true
-          type: string
-          format: byte
         - name: access_key
           in: query
           description: |
@@ -355,9 +302,11 @@ paths:
           schema:
             type: integer
             format: int32
-  /courses/{course_id}/{data}:
+  /api/v1/courses/{course_id}/{data}:
     get:
       summary: Get specific course data from API
+      security:
+        - Bearer: []
       description: |
         This route return data that can be used to create visualizations.
         Everything else was building up to this!
@@ -381,15 +330,6 @@ paths:
             enrolled students.
           required: true
           type: string
-        - name: Authorization
-          in: header
-          description: |
-            Authentication token, use the value received from either the
-            `/api/v1/verify_password` or `/api/v1/save_password` route using the
-            `Bearer authentication scheme`
-          required: true
-          type: string
-          format: byte
         - name: access_key
           in: query
           description: |
@@ -455,12 +395,27 @@ definitions:
     type: object
     properties:
       encrypted_email:
-        type: string
-        format: Base64
-        description: |
-          A JWT that needs to be returned for the next few calls to the
-          API.
+        $ref: '#/definitions/EmailToken'
       email:
         type: string
         format: email
         description: An email address the APP can use to identify the user
+  EmailToken:
+    type: string
+    format: Base64
+    description: |
+      A JWT that needs to be returned for the next few calls to the API. It
+      expires after 3 hours.
+  RegularToken:
+    type: string
+    format: Base64
+    description: |
+      A JWT that needs to be returned for calls that go to the Canvas API, or
+      relate to token handling. It expires after 3 hours.
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: Use the Bearer authentication scheme
+    x-pattern: Bearer {apiToken}
