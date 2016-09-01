@@ -40,8 +40,10 @@ class CanvasVisualizationAPI < Sinatra::Base
     when 'users' then GetUserLevelDataFromCanvas.new(params_for_api)
     when 'enrollments' then GetCourseInfoFromCanvas.new(params_for_api)
     when 'discussion_topics' then GetDiscussionsFromCanvas.new(params_for_api)
-    end
-    result = VisualizationTraffic.new(params['data'], result.call)
+    end.call
+    error_message = ErrorMessage.new(result).call
+    return error_message if error_message
+    result = VisualizationTraffic.new(params['data'], result)
     result.call
   end
 
